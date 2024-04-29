@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>  HUB R&D LAN MAPPING</title>
+    <link href="./bin/home-style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="./bin/home.png">
+   
+ 
+
+</head>
+
+<body>
+    <header>
+        <h1 class="retro-header" style="color: #f5f5f5;  display: inline; ">HUB R&D </h1><h1 class="retro-header" style="color: #000;  display: inline; "> IP MAPPING</h1> <br>    
+    </header>
+   <br><br>
+   
+
+ 
+   <ul>           
+    <a id="addLink" class="taglink" class="active" href="./index.html"><button type="button">ADD</button></a>
+    <a id="updateLink" class="taglink" href="./update.html"><button type="button">UPDATE</button></a>
+    <a id="deleteLink" class="taglink" href="./delete.html"><button type="button">DELETE</button></a>
+    <a id="mappingLink" class="taglink" href="./mapping.html"><button type="button">MAPPING</button></a>
+  </ul>
+
+
+<br>
+
+<section>
+    
+    <a class="taglink" href="#access"><button type="button" onclick="fetchDataFromDatabase()">IP LIST</button></a>
+   
+   
+    <div id="result" ></div>
+
+
+</section>
+
+<div class="divider"></div>
+
+<section class="daniele">
+    <br>
+    <br>      
+   
+            <div id="newPsw" >
+
+              <ul> 
+                <li>
+                <!-- Sezione 1 -->
+                  <div class="dropdown">
+                    <button class="dropbtn" id="ipDropdownBtn">Ip</button>
+                    <div class="dropdown-content" id="ipDropdown"></div>
+                  </div>              
+
+
+                <!-- Sezione 5 -->
+                <div class="dropdown">
+                    <button class="dropbtn" id="teamDropdownBtn">Team</button>
+                    <div class="dropdown-content" id="teamDropdown">
+                        <a href="#" data-value="Qa">Qa</a>
+                        <a href="#" data-value="Dev">Dev</a>
+                        <a href="#" data-value="Soft Tech">Soft Tech</a>
+                        <a href="#" data-value="External">External</a>
+                    </div>
+                </div>      
+
+                <!-- Sezione 6 -->
+                <div class="dropdown">
+                    <button class="dropbtn" id="typeDropdownBtn">Type</button>
+                    <div class="dropdown-content" id="typeDropdown">
+                        <a href="#" data-value="Windows">Windows</a>
+                        <a href="#" data-value="Linux">Linux</a>
+                        <a href="#" data-value="VM-Win">VM-Win</a>
+                        <a href="#" data-value="VM-Linux">VM-Linux</a>
+                        <a href="#" data-value="Linux-Device">Linux-Device</a>
+                        <a href="#" data-value="Lpr">Lpr</a>
+                        <a href="#" data-value="Android">Android</a>
+                        <a href="#" data-value="Ios">Ios</a>
+                        <a href="#" data-value="Other">Other</a>
+                    </div>
+                </div>
+                
+                <!-- Sezione 7 -->
+                <div class="dropdown">
+                    <button class="dropbtn" id="envDropdownBtn">Environment</button>
+                    <div class="dropdown-content" id="envDropdown">
+                        <a href="#" data-value="OnPremise">OnPremise</a>
+                        <a href="#" data-value="Cloud">Cloud</a>
+                        <a href="#" data-value="AutomaticTest">AutomaticTest</a>
+                    </div>
+                </div>
+
+                 <!-- Sezione 12 -->
+                <div class="dropdown">
+                    <button class="dropbtn" id="secDropdownBtn">Security</button>
+                    <div class="dropdown-content" id="secDropdown">
+                        <a href="#" data-value="Firewall">Firewall</a>
+                        <a href="#" data-value="Cortex">Cortex</a>
+                        <a href="#" data-value="Both">Both</a>
+                        <a href="#" data-value="None">None</a>
+                    </div>
+                </div><br><br><br><br>
+
+                <!-- Sezione 8 -->
+                <input class="psw" type="text" id="section8" placeholder="Hostname">
+                <!-- Sezione 9 -->
+                <input class="psw" type="text" id="section9" placeholder="Software">
+                <!-- Sezione 10 -->
+                <input class="psw" type="text" id="section10" placeholder="Os Version"> <br><br>
+                <!-- Sezione 11 -->
+                <input class="psw" type="text" id="section11" placeholder="Owner">              
+                <!-- Sezione 13 -->
+                <input class="psw" type="text" id="section13" placeholder="Psw Weakness">
+                <!-- Sezione 14 -->
+                <input class="psw" type="text" id="section14" placeholder="Note">  
+                <br><br>
+               
+                <br><br><br><br><br><br>
+               
+          
+
+    
+
+        <!-- Pulsante per aggiungere -->
+        <button class="addPswBtn" type="button" id="addNew" onclick="addNewPasswords()">Aggiungi</button>
+     
+    </li>
+            </ul>
+            </div>     
+            <div class="logo">
+                <img src="./bin/home.png" alt="Descrizione dell'immagine" style="width: 100px; height: auto;">
+            </div>
+
+</section> 
+       
+    <script src="./bin/readData.js"></script> 
+    <script src="./bin/addData.js"> </script>
+    <script src="./bin/ip.js"> </script>
+    
+    
+
+
+</body>
+</html>

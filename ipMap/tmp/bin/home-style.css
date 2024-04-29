@@ -1,0 +1,253 @@
+
+body {
+  background-color: #1a1919;
+  font-family: 'Courier Code', monospace;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #00c0b5;
+   
+  padding: 20px;
+  font-weight: bold;
+      
+}
+
+.retro-header {
+
+  font-family: 'Courier Code', monospace;
+  font-size: 65px;
+  
+}
+
+/* Stili specifici per la tabella dei dati */
+#result {
+  background-color: #f5f5f5;
+  color: #000;
+  margin: 20px;
+  text-align: left;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 90%;
+  margin: 20px auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 10px; /* Bordi arrotondati */
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  
+}
+
+th {
+  /* intestazioni delle colonne */
+  background-color: orange;
+  color: #070707;
+  
+}
+
+
+.retro-text {
+  font-size: 24px;
+}
+
+.highlighted {
+  background-color: #00c0b5;
+  font-weight: bold;
+  display: inline;
+  border-radius: 10px; /* Bordi arrotondati */
+}
+
+
+.taglink button {
+  background-color: transparent;
+  font-family: 'Courier Code', monospace;
+  color: white;
+  font-weight: bold;
+  /* Dimensione del testo in pixel */
+  font-size: 22px;
+  border: none;
+  border-radius: 10px; /* Bordi arrotondati */
+}
+
+.taglink button:hover {
+  background-color: #00c0b5;
+}
+
+.taglink.active {
+  font-family: 'Courier Code', monospace;
+  color: white;
+  font-weight: bold;
+  /* Dimensione del testo in pixel */
+  font-size: 22px;
+  border: none;
+  border-radius: 10px; /* Bordi arrotondati */
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+/* Nel file CSS */
+td {
+  background-color: #00695C;
+  color: #ffffff;
+}
+
+/* Colore arancione per la colonna 'tag' */
+.tag-cell {
+  background-color: orange;
+}
+
+.psw {
+ 
+  font-family: 'Courier Code', monospace;
+  color: #00c0b5;
+  font-weight: bold;
+  /* Dimensione del testo in pixel */
+  font-size: 20px;
+  border: none;
+  border-radius: 10px; /* Bordi arrotondati */
+}
+
+.titleH2 {
+
+  font-size: 40px;
+
+}
+
+.titleH3 {
+
+  font-size: 30px;
+
+}
+
+.divider {
+  width: 80%;
+  height: 2px; /* Modifica l'altezza per lo spessore */
+  background-color: #00c0b5; /* Colore del divider */
+  margin: 20px auto; /* Margine sopra e sotto il divider */
+  border-radius: 10px; /* Bordi arrotondati */
+
+}
+
+.addPswBtn {
+
+  font-family: 'Courier Code', monospace;
+  background-color: #00c0b5;
+  font-weight: bold;
+  /* Dimensione del testo in pixel */
+  font-size: 20px;
+  width: 180px;
+  height: 80px;
+  border: none;
+  border-radius: 10px; /* Bordi arrotondati */
+}
+
+.addPswBtn:hover {
+  background-color: #FB8C00;
+  color:#ffffff;
+  
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+/* Stili per il pulsante */
+.custom-button {
+  border-radius: 20px; /* Bordi arrotondati */
+  border: none;
+  cursor: pointer;
+  margin: 10px; /* Margine esterno */
+  overflow: hidden; /* Per mascherare l'overflow dell'immagine */
+  background-color: transparent; /* Sfondo trasparente */
+}
+
+/* Stili per l'immagine nel pulsante */
+.custom-button img {
+  border-radius: 20px; /* Bordi arrotondati per l'immagine */
+  width: 100%; /* Per riempire completamente lo spazio dell'immagine */
+  height: auto;
+  transition: transform 0.3s ease; /* Transizione per effetto hover */
+  
+}
+
+/* Effetto hover: ridimensiona leggermente l'immagine al passaggio del mouse */
+.custom-button:hover img {
+  transform: scale(0.95);
+  
+}
+
+
+
+  /* Stile di base per il menu */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Stile del pulsante del menu */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    width: 180px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px; /* Bordi arrotondati */
+}
+
+/* Stile del contenitore del menu a discesa */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    
+}
+
+/* Stile degli elementi del menu a discesa */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Cambia lo stile degli elementi al passaggio del mouse */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Mostra il menu a discesa quando il mouse passa sopra il pulsante */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+.logo {
+  position: fixed;
+  top: 0;
+  left: 3%;
+  transform: translateX(-50%);
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}

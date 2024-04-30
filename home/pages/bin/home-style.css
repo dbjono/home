@@ -16,6 +16,7 @@ body {
   width: 130;
   height: 200px;
   cursor: pointer;
+  
 }
 
 .hexagon {
@@ -78,4 +79,11 @@ body {
 .custom-image {
 
 border-radius: 30;  
+}
+
+#due {
+
+  position: relative;
+  left: 20px;
+
 }

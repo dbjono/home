@@ -48,12 +48,12 @@
           </a>
         </li>
         <li class="nav-item border-start my-0 pt-2">
-          <a class="nav-link position-relative ms-0 ps-2 py-2 " href="#cap2">
+          <a class="nav-link position-relative ms-0 ps-2 py-2 " href="./Dani.html">
             <span class="nav-link-text ms-1">Dani</span>
           </a>
         </li>
         <li class="nav-item border-start my-0 pt-2">
-          <a class="nav-link position-relative ms-0 ps-2 py-2 " href="./Lisa.html">
+          <a class="nav-link position-relative ms-0 ps-2 py-2 " href="#cap3">
             <span class="nav-link-text ms-1">Lisa</span>
           </a>
         </li>      
@@ -67,7 +67,7 @@
       <div class="container-fluid py-1 px-2">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-1 pb-0 pt-1 px-0 me-sm-6 me-5">            
-            <h3 class="font-weight-bold mb-0 text-dark active" >Dani Password</h3>
+            <h3 class="font-weight-bold mb-0 text-dark active" >Lisa Password</h3>
           </ol>
           
         </nav>
@@ -108,14 +108,14 @@
       
       <div class="container">       
         <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text" >Tag</span><input type="text" id="section1" class="form-control" placeholder="Insert Tag" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <span class="input-group-text">Username</span> <input type="text" id="section3" class="form-control" placeholder="Insert Username" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <span class="input-group-text" >Password</span><input type="text" id="section4" class="form-control" placeholder="Insert Password" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <span class="input-group-text" >Tag</span><input type="text" id="sectionl1" class="form-control" placeholder="Insert Tag" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <span class="input-group-text">Username</span> <input type="text" id="sectionl3" class="form-control" placeholder="Insert Username" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <span class="input-group-text" >Password</span><input type="text" id="sectionl4" class="form-control" placeholder="Insert Password" aria-label="Recipient's username" aria-describedby="button-addon2">
         </div>
         <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text" >Nome</span><input type="text" id="section2" class="form-control" placeholder="Insert Nome" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <span class="input-group-text">Link</span> <input type="text" id="section5" class="form-control" placeholder="Insert Link" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <span class="input-group-text" >Note</span><input type="text" id="section6" class="form-control" placeholder="Insert Note" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <span class="input-group-text" >Nome</span><input type="text" id="sectionl2" class="form-control" placeholder="Insert Nome" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <span class="input-group-text">Link</span> <input type="text" id="sectionl5" class="form-control" placeholder="Insert Link" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <span class="input-group-text" >Note</span><input type="text" id="sectionl6" class="form-control" placeholder="Insert Note" aria-label="Recipient's username" aria-describedby="button-addon2">
         </div>
         
       </div>
@@ -124,7 +124,7 @@
    
 
       <div class="d-grid gap-2 col-2 mx-auto">
-        <button type="button" class="btn btn-sm btn-dark btn-icon d-flex align-items-center mb-0" id="addNew" onclick="addNewPasswords()">
+        <button type="button" class="btn btn-sm btn-dark btn-icon d-flex align-items-center mb-0" id="addNewLisa" onclick="addNewPasswordsLisa()">
           
           <span class="btn-inner--text" >Aggiungi</span>
         </button>
@@ -133,7 +133,7 @@
       <!-- doc data --> <br>
       <hr class="my-0"><br>
       <div class="d-grid gap-2 col-2 mx-auto">
-        <button type="button" class="btn btn-sm btn-dark btn-icon d-flex align-items-center mb-0" onclick="fetchDataFromDatabase()">          
+        <button type="button" class="btn btn-sm btn-dark btn-icon d-flex align-items-center mb-0" onclick="fetchDataFromDatabase2()">          
           <span class="btn-inner--text" >View</span>
         </button>
       </div>
@@ -208,18 +208,18 @@
     // DANIELE SECTION
 
     // view Data
-    function fetchDataFromDatabase() {
-        fetch('http://127.0.0.1:3030/daniele')
+    function fetchDataFromDatabase2() {
+        fetch('http://127.0.0.1:3030/lisa')
             .then(response => response.json())
             .then(data => {
-                displayData(data);
+                displayData2(data);
             })
             .catch(error => {
                 console.error('Si è verificato un errore:', error);
             });
     }
 
-    function displayData(data) {
+    function displayData2(data) {
         const resultDiv = document.getElementById('result');
         resultDiv.innerHTML = '';
 
@@ -303,31 +303,31 @@
     // add psw section
 
     
-    function addNewPasswords() {
+    function addNewPasswordsLisa() {
         // Recupera i valori dalle sezioni di testo
-        const tag = document.getElementById('section1').value;
-        const name = document.getElementById('section2').value;
-        const username = document.getElementById('section3').value;
-        const password = document.getElementById('section4').value;
-        const link = document.getElementById('section5').value;
-        const note = document.getElementById('section6').value;
+        const ltag = document.getElementById('sectionl1').value;
+        const lname = document.getElementById('sectionl2').value;
+        const lusername = document.getElementById('sectionl3').value;
+        const lpassword = document.getElementById('sectionl4').value;
+        const llink = document.getElementById('sectionl5').value;
+        const lnote = document.getElementById('sectionl6').value;
 
         // Esegui una chiamata al backend per inserire le password nel database
         // Questa parte deve essere implementata lato server con Node.js e PostgreSQL
 
         // Esempio di fetch per chiamare l'API del backend (da implementare)
-        fetch('http://127.0.0.1:3030/addPasswordsDani', {
+        fetch('http://127.0.0.1:3030/addPasswordsLisa', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                tag,
-                name,
-                username,
-                password,
-                link,
-                note
+                ltag,
+                lname,
+                lusername,
+                lpassword,
+                llink,
+                lnote
             })
         })
         .then(response => response.json())

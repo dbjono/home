@@ -1,180 +1,81 @@
-
 body {
-  background-color: #1a1919;
-  font-family: 'Courier Code', monospace;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background-color: #00c0b5;
-   
-  padding: 20px;
-  font-weight: bold;
-      
-}
-
-.retro-header {
-
-  font-family: 'Courier Code', monospace;
-  font-size: 65px;
-  
-}
-
-/* Stili specifici per la tabella dei dati */
-#result {
-  background-color: #f5f5f5;
-  color: #000;
-  margin: 20px;
-  text-align: left;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  width: 80%;
-  margin: 20px auto;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-  border-radius: 10px; /* Bordi arrotondati */
-}
-
-th, td {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-  
-}
-
-th {
-  /* intestazioni delle colonne */
-  background-color: orange;
-  color: #070707;
-  
-}
-
-
-.retro-text {
-  font-size: 24px;
-}
-
-.highlighted {
-  background-color: #00c0b5;
-  font-weight: bold;
-  display: inline;
-  border-radius: 10px; /* Bordi arrotondati */
-}
-
-
-.taglink button {
-  background-color: transparent;
-  font-family: 'Courier Code', monospace;
-  color: white;
-  font-weight: bold;
-  /* Dimensione del testo in pixel */
-  font-size: 22px;
-  border: none;
-  border-radius: 10px; /* Bordi arrotondati */
-}
-
-.taglink button:hover {
-  background-color: #00c0b5;
-}
-
-/* Nel file CSS */
-td {
-  background-color: #00c0b5;
-  color: white;
-}
-
-/* Colore arancione per la colonna 'tag' */
-.tag-cell {
-  background-color: orange;
-}
-
-.psw {
- 
-  font-family: 'Courier Code', monospace;
-  color: #00c0b5;
-  font-weight: bold;
-  /* Dimensione del testo in pixel */
-  font-size: 20px;
-  border: none;
-  border-radius: 10px; /* Bordi arrotondati */
-}
-
-.titleH2 {
-
-  font-size: 40px;
-
-}
-
-.titleH3 {
-
-  font-size: 30px;
-
-}
-
-.divider {
-  width: 80%;
-  height: 2px; /* Modifica l'altezza per lo spessore */
-  background-color: #00c0b5; /* Colore del divider */
-  margin: 20px auto; /* Margine sopra e sotto il divider */
-  border-radius: 10px; /* Bordi arrotondati */
-
-}
-
-.addPswBtn {
-
-  font-family: 'Courier Code', monospace;
-  background-color: #00c0b5;
-  font-weight: bold;
-  /* Dimensione del testo in pixel */
-  font-size: 20px;
-  border: none;
-  border-radius: 10px; /* Bordi arrotondati */
-}
-
-.addPswBtn:hover {
-  background-color: #FB8C00;
-  color:#ffffff;
-  
-}
-
-
-.container {
+  height: 100vh;
+  overflow: hidden;
+  background: rgb(15,23,42);
+  background: linear-gradient(90deg, rgba(15,23,42,0.9612219887955182) 0%, rgba(15,23,42,0.9108018207282913) 31%, rgba(9,89,117,0.9164040616246498) 55%, rgba(21,117,153,0.927608543417367) 97%);
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
- 
 }
 
-/* Stili per il pulsante */
-.custom-button {
-  border-radius: 20px; /* Bordi arrotondati */
-  border: none;
+.hexagon-wrapper {
+  margin: auto;
+  display: flex;
+  text-align: initial;
+  width: 130;
+  height: 200px;
   cursor: pointer;
-  margin: 10px; /* Margine esterno */
-  overflow: hidden; /* Per mascherare l'overflow dell'immagine */
-  background-color: transparent; /* Sfondo trasparente */
 }
 
-/* Stili per l'immagine nel pulsante */
-.custom-button img {
-  border-radius: 20px; /* Bordi arrotondati per l'immagine */
-  width: 100%; /* Per riempire completamente lo spazio dell'immagine */
-  height: auto;
-  transition: transform 0.3s ease; /* Transizione per effetto hover */
+.hexagon {
+  position: relative;
+  width: 46%;
+  height: 80%;
+  margin: auto;
+  color: white;
+  background: linear-gradient(-180deg, #d9ece3, #256f1c);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  transition: 0.5s;
+  border-radius: 13px; 
+  padding: 10px 20px; 
+}
+
+.hexagon i {
+  z-index: 1;
+  margin: auto;
+  font-size: 50px;
+  color: transparent;
+  background: linear-gradient(45deg, #8c0c27, #e37682);
+  background-clip: text;
+  -webkit-background-clip: text;
   
 }
 
-/* Effetto hover: ridimensiona leggermente l'immagine al passaggio del mouse */
-.custom-button:hover img {
-  transform: scale(0.95);
-  
+.hexagon:before,
+.hexagon:after {
+  position: absolute;
+  content: "";
+  background: inherit;
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  transition: 0.5s;
+  transform-origin: center;
+  border-radius: 13px; 
+  padding: 10px 20px;
+}
+
+.hexagon:after {
+  transform: rotateZ(-60deg);
+}
+.hexagon:hover {
+  border-radius: 50px;
+  transition: 0.5s;
+}
+.hexagon:hover:before {
+  border-radius: 50px;
+  transition: 0.5s;
+}
+.hexagon:hover:after {
+  border-radius: 50px;
+  transition: 0.5s;
 }
 
 
+.custom-image {
 
+border-radius: 30;  
+}

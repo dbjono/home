@@ -209,7 +209,7 @@
 
     // view Data
     function fetchDataFromDatabase2() {
-        fetch('http://127.0.0.1:3030/lisa')
+        fetch('http://192.168.1.23:3030/lisa')
             .then(response => response.json())
             .then(data => {
                 displayData2(data);
@@ -316,7 +316,7 @@
         // Questa parte deve essere implementata lato server con Node.js e PostgreSQL
 
         // Esempio di fetch per chiamare l'API del backend (da implementare)
-        fetch('http://127.0.0.1:3030/addPasswordsLisa', {
+        fetch('http://192.168.1.23:3030/addPasswordsLisa', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

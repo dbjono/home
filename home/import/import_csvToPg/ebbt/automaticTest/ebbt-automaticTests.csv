@@ -1,0 +1,26 @@
+Issuekey,IssueId,Summary,Complexity
+EBBT-7426,775337,[REGRESSION] Access Policy,
+EBBT-7428,775360,[REGRESSION] Discount,
+EBBT-7692,841331,[REGRESSION] Rate Management,
+EBBT-7693,841332,[REGRESSION] User Category Management,
+EBBT-7691,841330,[REGRESSION] Customer Management,
+EBBT-5220,397967,[REGRESSION] Management System Parameters,L
+EBBT-5197,397941,[REGRESSION] Value Card Management,
+EBBT-5215,397962,[REGRESSION] Fixed Path,M
+EBBT-5208,397954,[REGRESSION] Third Party System,M
+EBBT-5210,397956,[REGRESSION] Unassigned media pool,S
+EBBT-6677,528956,[REGRESSION] External Ticket,S
+EBBT-5202,397947,[REGRESSION] Operator Card,XS
+EBBT-5207,397953,[REGRESSION] Car Pool,XS
+EBBT-5196,397940,[REGRESSION] Per Usage Management,S
+EBBT-6614,522542,[REGRESSION-CLOUD] Stress Test,XS
+EBBT-5229,397977,[REGRESSION] LPR Blocked list/Warning list,XS
+EBBT-5195,397939,[REGRESSION] Time Based Management,
+EBBT-7846,874868,[REGRESSION-CAAT] Implement contract management submitted at “Membership” logic in JW Backoffice,XL
+EBBT-5211,397957,[REGRESSION] External Service,L
+EBBT-5926,460127,[REGRESSION] Ignore consecutive reading of same UID for a configurable time,XS
+EBBT-5074,392517,[REGRESSION] Points Card Product Profile,M
+EBBT-5198,397942,[REGRESSION] Service Card Management,XS
+EBBT-7363,765136,[REGRESSION] Basic Entities,XL
+EBBT-8622,1105248,[REGRESSION]  Event ticket (OP-581 IT),M
+EBBT-5199,397943,[REGRESSION] Congress Ticket,S

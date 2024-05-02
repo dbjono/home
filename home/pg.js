@@ -26,7 +26,7 @@ app.listen(PORT, () => {
 // Configurazione della connessione al database PostgreSQL
 const client = new Client({
     user: 'bertocchi',
-    host: 'localhost',
+    host: '192.168.1.23',
     database: 'password',
     password: 'daniele',
     port: 5432,

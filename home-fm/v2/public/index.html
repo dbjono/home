@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Catalog</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Media Catalog</h2>
+        <form id="analyzeForm">
+            <div class="input-field">
+                <input id="foldersInput" type="text" class="validate" required>
+                <label for="foldersInput">Percorso delle cartelle (separate da virgola)</label>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Analizza
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+       <div class="preset-buttons">
+    <button class="btn waves-effect waves-light preset-folder" data-folder="G:\\Film">Film
+        <i class="material-icons right">folder</i>
+    </button>
+    <button class="btn waves-effect waves-light preset-folder" data-folder="F:\\Film&Documentari">Marvel & Scifi
+        <i class="material-icons right">folder</i>
+    </button>
+    <button class="btn waves-effect waves-light preset-folder" data-folder="D:\\Emule\\SerieTV">TV Shows 1
+        <i class="material-icons right">folder</i>
+    </button>
+    <button class="btn waves-effect waves-light preset-folder" data-folder="F:\\SerieTv">Tv Shows 2
+        <i class="material-icons right">folder</i>
+    </button>
+    <button class="btn waves-effect waves-light preset-folder" data-folder="G:\\Ds9">DS9
+        <i class="material-icons right">folder</i>
+    </button>
+    <button class="btn waves-effect waves-light preset-folder" data-folder="G:\\SerieTv">SciFi
+        <i class="material-icons right">folder</i>
+    </button>
+    <button class="btn waves-effect waves-light preset-folder" data-folder="G:\\test">test
+        <i class="material-icons right">folder</i>
+    </button>
+</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            $('#analyzeForm').submit((event) => {
+                event.preventDefault();
+                const foldersValue = $('#foldersInput').val();
+                analyzeFolders(foldersValue);
+            });
+
+            $('.preset-folder').click((event) => {
+                const folders = $(event.target).data('folder');
+                analyzeFolders(folders);
+            });
+
+            function analyzeFolders(folders) {
+                $.post('/analyze', { folders: folders.replace(/\\/g, '\\\\') }, (data) => {
+                    console.log(data);
+                    // Puoi gestire la risposta qui o reindirizzare a un'altra pagina
+                    // Ad esempio: window.location.href = 'details.html';
+                }).fail((error) => {
+                    console.error('Errore durante la richiesta al server:', error.responseText);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

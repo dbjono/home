@@ -1,32 +1,11 @@
-version: '3'
 services:
-
-  postgres:
-    container_name: postgres-jbl
-    image: postgres:16
-    environment:
-     POSTGRES_DB: jbl
-     POSTGRES_USER: postgres
-     POSTGRES_PASSWORD: postgres
-     POSTGRES_HOST_AUTH_METHOD: trust
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
     volumes:
-      - ./postgres:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
-
-  jbl:
-    container_name: jbl
-    build:
-      dockerfile: ./Dockerfile
-      context: jbl_container
-    ports:
-      - 55000:55000
-      - 55091:55091
-      - 9999:9999
-      - 62000:62000
-    volumes:
-      - ./jbl_container/jbl:/opt/jbl
-      - ./jbl_container/log:/opt/jbl/jbllog/
-    environment:
-      - DATABASE_URL=postgres://jbl:jbl@postgres:5432/jbl
-    entrypoint: /opt/jbl/run_jbl.sh
+      - /PATH_TO_YOUR_CONFIG:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host

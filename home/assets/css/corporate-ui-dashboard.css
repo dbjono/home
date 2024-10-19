@@ -27605,6 +27605,7 @@ button.swiper-pagination-bullet {
   margin: 20px;
   width: 80%;
   margin: 20px auto;*/
+  border-radius: 10px; /* Bordi arrotondati */
 }
 
 table {

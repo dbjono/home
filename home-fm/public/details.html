@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettagli dei Media</title>
+    <style>
+        .container {
+            margin: 20px;
+        }
+        .media-item {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .media-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mediaDetailsContainer">
+        <h2>Dettagli dei Media</h2>
+    </div>
+
+    <script>
+        // Funzione per fare una richiesta AJAX al server e popolare i dettagli dei media
+        function populateMediaDetails() {
+            fetch('/mediaDetails')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('mediaDetailsContainer');
+
+                    data.movies.forEach(movie => {
+                        const mediaItem = document.createElement('div');
+                        mediaItem.classList.add('media-item');
+
+                        // Aggiunge l'immagine (se disponibile)
+                        if (movie.tmdbInfo && movie.tmdbInfo.poster_path) {
+                            const img = document.createElement('img');
+                            img.src = `https://image.tmdb.org/t/p/original${movie.tmdbInfo.poster_path}`;
+                            img.alt = movie.title;
+                            mediaItem.appendChild(img);
+                        }
+
+                        // Aggiunge il titolo
+                        const title = document.createElement('h3');
+                        title.textContent = movie.title;
+                        mediaItem.appendChild(title);
+
+                        // Aggiunge l'overview
+                        if (movie.tmdbInfo && movie.tmdbInfo.overview) {
+                            const overview = document.createElement('p');
+                            overview.textContent = movie.tmdbInfo.overview;
+                            mediaItem.appendChild(overview);
+                        }
+
+                        container.appendChild(mediaItem);
+                    });
+                })
+                .catch(error => console.error('Errore durante il recupero dei dettagli dei media:', error));
+        }
+
+        populateMediaDetails();
+    </script>
+</body>
+</html>

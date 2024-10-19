@@ -28,7 +28,7 @@
     <div class="sidenav-header">
       <a class="navbar-brand d-flex align-items-center m-0" href=" https://demos.creative-tim.com/corporate-ui-dashboard/pages/dashboard.html " target="_blank">
        
-        <!-- menu column top upd to Dashboard button --><img src="./bin/psw.png" class="icon-angle">
+        <!-- menu column top upd to Dashboard button --><img src="./bin/icons.png" class="icon-angle">
       </a>
     </div>
     <div class="collapse navbar-collapse px-4  w-auto " id="sidenav-collapse-main">
@@ -205,99 +205,102 @@
   <script src="../assets/js/corporate-ui-dashboard.min.js?v=1.0.0"></script>
 
   <script>
-    // DANIELE SECTION
+   // DANIELE SECTION
 
     // view Data
     function fetchDataFromDatabase() {
-        fetch('http://192.168.1.23:3030/daniele')
-            .then(response => response.json())
-            .then(data => {
-                displayData(data);
-            })
-            .catch(error => {
-                console.error('Si è verificato un errore:', error);
-            });
-    }
+      fetch('http://192.168.1.23:3030/daniele')
+          .then(response => response.json())
+          .then(data => {
+              displayData(data);
+          })
+          .catch(error => {
+              console.error('Si è verificato un errore:', error);
+          });
+  }
 
-    function displayData(data) {
-        const resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = '';
+  function displayData(data) {
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = '';
 
-        const searchInput = document.createElement('input');
-        searchInput.type = 'text';
-        searchInput.placeholder = 'Filtra per tag...';
-        searchInput.addEventListener('input', function() {
-            const filteredData = data.filter(item => item.tag.toLowerCase().includes(this.value.toLowerCase()));
-            displayFilteredData(filteredData);
-        });
+      const filterDiv = document.createElement('div');
 
-        resultDiv.appendChild(searchInput);
-        
-        const table = document.createElement('table');
-        const headerRow = document.createElement('tr');
+      const searchTagInput = document.createElement('input');
+      searchTagInput.type = 'text';
+      searchTagInput.placeholder = 'Filtra per tag...';
+      filterDiv.appendChild(searchTagInput);
 
-        // Creazione delle intestazioni della tabella basate sulle chiavi dell'oggetto
-        for (let key in data[0]) {
-            const th = document.createElement('th');
-            th.textContent = key;
-            headerRow.appendChild(th);
-        }
-        table.appendChild(headerRow);
+      const searchNameInput = document.createElement('input');
+      searchNameInput.type = 'text';
+      searchNameInput.placeholder = 'Filtra per nome...';
+      filterDiv.appendChild(searchNameInput);
 
-        // Aggiunta dei dati alla tabella
-        data.forEach(item => {
-            const row = document.createElement('tr');
-            for (let key in item) {
-                const cell = document.createElement('td');
-                cell.textContent = item[key];
+      resultDiv.appendChild(filterDiv);
 
-                if (key === 'tag,name') {
-                    cell.classList.add('tag-cell');
-                }
+      const table = document.createElement('table');
+      const headerRow = document.createElement('tr');
 
-                row.appendChild(cell);
-            }
-            table.appendChild(row);
-        });
+      // Creazione delle intestazioni della tabella basate sulle chiavi dell'oggetto
+      for (let key in data[0]) {
+          const th = document.createElement('th');
+          th.textContent = key;
+          headerRow.appendChild(th);
+      }
+      table.appendChild(headerRow);
 
-        resultDiv.appendChild(table);
-    }
+      // Aggiunta dei dati alla tabella
+      data.forEach(item => {
+          const row = document.createElement('tr');
+          for (let key in item) {
+              const cell = document.createElement('td');
+              cell.textContent = item[key];
+              row.appendChild(cell);
+          }
+          table.appendChild(row);
+      });
 
-    function displayFilteredData(filteredData) {
+      resultDiv.appendChild(table);
 
+      function filterData() {
+          const tagFilter = searchTagInput.value.toLowerCase();
+          const nameFilter = searchNameInput.value.toLowerCase();
+          const filteredData = data.filter(item => 
+              item.tag.toLowerCase().includes(tagFilter) && 
+              item.name.toLowerCase().includes(nameFilter)
+          );
+          displayFilteredData(filteredData);
+      }
 
-        const resultDiv = document.getElementById('result');
-        const table = document.createElement('table');
-        const headerRow = document.createElement('tr');
+      searchTagInput.addEventListener('input', filterData);
+      searchNameInput.addEventListener('input', filterData);
+  }
 
-        // Creazione delle intestazioni della tabella basate sulle chiavi dell'oggetto filtrato
-        for (let key in filteredData[0]) {
-            const th = document.createElement('th');
-            th.textContent = key;
-            headerRow.appendChild(th);
-        }
-        table.appendChild(headerRow);
+  function displayFilteredData(filteredData) {
+      const resultDiv = document.getElementById('result');
+      const table = document.createElement('table');
+      const headerRow = document.createElement('tr');
 
-        // Aggiunta dei dati filtrati alla tabella
-        filteredData.forEach(item => {
-            const row = document.createElement('tr');
-            for (let key in item) {
-                const cell = document.createElement('td');
-                cell.textContent = item[key];
+      // Creazione delle intestazioni della tabella basate sulle chiavi dell'oggetto filtrato
+      for (let key in filteredData[0]) {
+          const th = document.createElement('th');
+          th.textContent = key;
+          headerRow.appendChild(th);
+      }
+      table.appendChild(headerRow);
 
-                if (key === 'tag') {
-                    cell.classList.add('tag-cell');
-                }
+      // Aggiunta dei dati filtrati alla tabella
+      filteredData.forEach(item => {
+          const row = document.createElement('tr');
+          for (let key in item) {
+              const cell = document.createElement('td');
+              cell.textContent = item[key];
+              row.appendChild(cell);
+          }
+          table.appendChild(row);
+      });
 
-                row.appendChild(cell);
-            }
-            table.appendChild(row);
-        });
-
-        resultDiv.querySelector('table').replaceWith(table);
-    }
-
-    // view data
+      resultDiv.querySelector('table').replaceWith(table);
+  }
 
     
     // add psw section

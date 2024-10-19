@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettagli Media</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 id="media-title">Dettagli Media</h2>
+        <div id="media-details"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const mediaName = urlParams.get('name');
+
+            if (mediaName) {
+                $.get(`/details/${mediaName}`, (data) => {
+                    $('#media-title').text(data.name);
+                    $('#media-details').html(`
+                        <p>Nome: ${data.name}</p>
+                        <p>Dimensione: ${data.size}</p>
+                        <p>Tipo: ${data.type}</p>
+                        <pre>${JSON.stringify(data.tmdbInfo, null, 2)}</pre>
+                    `);
+                }).fail((error) => {
+                    $('#media-details').html('<p>Errore durante il caricamento dei dettagli.</p>');
+                });
+            } else {
+                $('#media-details').html('<p>Nome media non fornito.</p>');
+            }
+        });
+    </script>
+</body>
+</html>

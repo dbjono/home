@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drag & Drop File Upload</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Carica i tuoi file</h1>
+
+    <div id="drop-area">
+        Trascina i file qui o clicca per selezionare
+        <input type="file" id="fileElem" multiple accept="*" style="display:none" onchange="handleFiles(this.files)">
+        <label for="fileElem">Seleziona file</label> 
+    </div>
+
+    <h2>Anteprime</h2>
+    <div id="preview"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
